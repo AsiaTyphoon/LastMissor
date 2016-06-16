@@ -15,6 +15,9 @@
 		EE1506F31D12A49C009A22B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE1506F11D12A49C009A22B1 /* LaunchScreen.storyboard */; };
 		EE1506FE1D12A49C009A22B1 /* LastMissorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1506FD1D12A49C009A22B1 /* LastMissorTests.m */; };
 		EE1507091D12A49C009A22B1 /* LastMissorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1507081D12A49C009A22B1 /* LastMissorUITests.m */; };
+		EE1507191D12A906009A22B1 /* HXNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1507181D12A906009A22B1 /* HXNavigationController.m */; };
+		EE15071C1D12A925009A22B1 /* HXTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE15071B1D12A925009A22B1 /* HXTabBarController.m */; };
+		EE15071F1D12A93E009A22B1 /* HXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE15071E1D12A93E009A22B1 /* HXViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,12 @@
 		EE1507041D12A49C009A22B1 /* LastMissorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LastMissorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE1507081D12A49C009A22B1 /* LastMissorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LastMissorUITests.m; sourceTree = "<group>"; };
 		EE15070A1D12A49C009A22B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE1507171D12A906009A22B1 /* HXNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXNavigationController.h; sourceTree = "<group>"; };
+		EE1507181D12A906009A22B1 /* HXNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXNavigationController.m; sourceTree = "<group>"; };
+		EE15071A1D12A925009A22B1 /* HXTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXTabBarController.h; sourceTree = "<group>"; };
+		EE15071B1D12A925009A22B1 /* HXTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXTabBarController.m; sourceTree = "<group>"; };
+		EE15071D1D12A93E009A22B1 /* HXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXViewController.h; sourceTree = "<group>"; };
+		EE15071E1D12A93E009A22B1 /* HXViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +119,7 @@
 				EE1506F11D12A49C009A22B1 /* LaunchScreen.storyboard */,
 				EE1506F41D12A49C009A22B1 /* Info.plist */,
 				EE1506E31D12A49C009A22B1 /* Supporting Files */,
+				EE1507161D12A8A1009A22B1 /* MainController */,
 			);
 			path = LastMissor;
 			sourceTree = "<group>";
@@ -138,6 +148,19 @@
 				EE15070A1D12A49C009A22B1 /* Info.plist */,
 			);
 			path = LastMissorUITests;
+			sourceTree = "<group>";
+		};
+		EE1507161D12A8A1009A22B1 /* MainController */ = {
+			isa = PBXGroup;
+			children = (
+				EE1507171D12A906009A22B1 /* HXNavigationController.h */,
+				EE1507181D12A906009A22B1 /* HXNavigationController.m */,
+				EE15071A1D12A925009A22B1 /* HXTabBarController.h */,
+				EE15071B1D12A925009A22B1 /* HXTabBarController.m */,
+				EE15071D1D12A93E009A22B1 /* HXViewController.h */,
+				EE15071E1D12A93E009A22B1 /* HXViewController.m */,
+			);
+			path = MainController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,9 +294,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE15071F1D12A93E009A22B1 /* HXViewController.m in Sources */,
 				EE1506EB1D12A49C009A22B1 /* ViewController.m in Sources */,
 				EE1506E81D12A49C009A22B1 /* AppDelegate.m in Sources */,
 				EE1506E51D12A49C009A22B1 /* main.m in Sources */,
+				EE15071C1D12A925009A22B1 /* HXTabBarController.m in Sources */,
+				EE1507191D12A906009A22B1 /* HXNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +531,7 @@
 				EE15070F1D12A49C009A22B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EE1507101D12A49C009A22B1 /* Build configuration list for PBXNativeTarget "LastMissorTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +540,7 @@
 				EE1507121D12A49C009A22B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EE1507131D12A49C009A22B1 /* Build configuration list for PBXNativeTarget "LastMissorUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +549,7 @@
 				EE1507151D12A49C009A22B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
