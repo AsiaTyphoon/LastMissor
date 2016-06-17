@@ -7,8 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "HXNavigationController.h"
-#import "ViewController.h"
+#import "HXTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -20,12 +19,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    ViewController *viewcontroller = [[ViewController alloc] init];
-    viewcontroller.title = @"Home";
-    viewcontroller.view.backgroundColor = [UIColor whiteColor];
-    HXNavigationController *nvcontroller = [[HXNavigationController alloc] initWithRootViewController:viewcontroller];
-    self.window.rootViewController = nvcontroller;
+    HXTabBarController *viewcontroller = [[HXTabBarController alloc] init];
+    self.window.rootViewController = viewcontroller;
+    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
     
     return YES;
 }
@@ -51,5 +49,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
 
 @end

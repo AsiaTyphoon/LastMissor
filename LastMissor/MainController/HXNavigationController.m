@@ -20,11 +20,23 @@
     
     // 设置导航栏为半透明
     UINavigationBar *navigationBar = self.navigationBar;
-    [navigationBar setBarStyle:UIBarStyleDefault];
-    [navigationBar setTranslucent:YES];
+//    [navigationBar setBarStyle:UIBarStyleDefault];
+//    [navigationBar setTranslucent:YES];
     
     //修改标题的颜色
-    [navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
+    [navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
+    //修改导航栏背景颜色为黑色，并且状态栏的字体颜色为白色
+    [self.navigationBar setBarStyle:UIBarStyleBlack];
+
+    //    UINavigationBar *bar = [UINavigationBar appearance];
+    //    CGFloat rgb = 0.1;
+    //    bar.barTintColor = [UIColor colorWithRed:rgb green:rgb blue:rgb alpha:0.9];
+    //    bar.tintColor = [UIColor whiteColor];
+    //    bar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+
+    //全局隐藏tabbar
+//    self.navigationBar.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {

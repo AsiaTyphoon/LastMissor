@@ -9,6 +9,19 @@
 #import "HXTabBarController.h"
 #import "HXNavigationController.h"
 
+//child viewcontroller
+#import "HomeViewController.h"
+#import "FoodViewController.h"
+#import "FriendViewController.h"
+#import "AboutViewController.h"
+
+
+#define keyClass   (@"viewcontroller")
+#define keyTtitle   (@"title")
+#define keyBtitle   (@"tabBarItemTitle")
+#define keyNimage   (@"image")
+#define keySimage   (@"selectedImage")
+
 @interface HXTabBarController ()
 
 @end
@@ -20,9 +33,8 @@
     // Do any additional setup after loading the view.
     
     //初始化控制器
-    [self setUpAllControllers];
+    [self setUpChildViewControllers];
     
-    //回执编号[2915003931]，成功凭证[14663476]
     
     //设置tabbarcontroller的tabbaritem图片的大小
     UIImage *tabbarimage=[[UIImage imageNamed:@"home-10.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -38,57 +50,44 @@
 }
 
 #pragma mark -- 添加所有子控制器
-- (void)setUpAllControllers
+- (void)setUpChildViewControllers
 {
 //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    
-//    NSString *strTitle;
-//    NSString *strTabBarItemTitle;
-//    NSString *strImageName;
-//    NSString *strSelectImageName;
-//    
-//    //camera
-//    //    CameraViewController *camera = [[CameraViewController alloc] init];
-//    CameraViewController *camera = [storyboard instantiateViewControllerWithIdentifier:@"CameraViewSBID"];
-//    strTitle            = @"ROCAM";
-//    strTabBarItemTitle  = NSLocalizedString(@"Camera", nil);
-//    strImageName        = @"home-6-30×30.png";
-//    strSelectImageName  = @"home-6-Click-30×30.png";
-//    [self setUpController:camera Title:strTitle ItemTitle:strTabBarItemTitle Image:strImageName SelectImage:strSelectImageName];
-//    
-//    //video
-//    //    VideoViewController *HXVideo = [[VideoViewController alloc] init];
-//    VideoViewController *HXVideo = [storyboard instantiateViewControllerWithIdentifier:@"VideoViewSBID"];
-//    strTitle            = NSLocalizedString(@"video viewing", nil);
-//    strTabBarItemTitle  = NSLocalizedString(@"video", nil);
-//    strImageName        = @"home-7-30×30.png";
-//    strSelectImageName  = @"home-7-Click-30×30.png";
-//    
-//    [self setUpController:HXVideo Title:strTitle ItemTitle:strTabBarItemTitle Image:strImageName SelectImage:strSelectImageName];
-//    
-//    
-//    //photo
-//    //    PhotoViewController *HXPhoto = [[PhotoViewController alloc] init];
-//    PhotoViewController *HXPhoto = [[PhotoViewController alloc] init];
-//    strTitle            = NSLocalizedString(@"Local Picture", nil);
-//    strTabBarItemTitle  = NSLocalizedString(@"picture", nil);
-//    strImageName        = @"home-8-30×30.png";
-//    strSelectImageName  = @"home-8-Click-30×30.png";
-//    [self setUpController:HXPhoto Title:strTitle ItemTitle:strTabBarItemTitle Image:strImageName SelectImage:strSelectImageName];
-//    
-//    
-//    
-//    //about
-//    //    AboutViewController *about = [[AboutViewController alloc] init];
-//    //    AboutViewController *about = [storyboard instantiateViewControllerWithIdentifier:@"AboutViewSBID"];
-//    MoreViewController *more = [[MoreViewController alloc] init];
-//    strTitle            = NSLocalizedString(@"About", nil);
-//    strTabBarItemTitle  = NSLocalizedString(@"About", nil);
-//    strImageName        = @"home-9-30×30.png";
-//    strSelectImageName  = @"home-9-Click-30×30.png";
-//    [self setUpController:more Title:strTitle ItemTitle:strTabBarItemTitle Image:strImageName SelectImage:strSelectImageName];
+ 
+    NSArray *childViewControllers = @[
+                                      @{keyClass:@"HomeViewController",
+                                        keyTtitle:@"",
+                                        keyBtitle:@"支付宝",
+                                        keyNimage:@"tabbar_mainframe",
+                                        keySimage:@"tabbar_mainframeHL"},
+                                      
+                                      @{keyClass:@"FoodViewController",
+                                        keyTtitle:@"",
+                                        keyBtitle:@"口碑",
+                                        keyNimage:@"tabbar_discover",
+                                        keySimage:@"tabbar_discoverHL"},
+                                      
+                                      @{keyClass:@"FriendViewController",
+                                        keyTtitle:@"",
+                                        keyBtitle:@"朋友",
+                                        keyNimage:@"tabbar_contacts",
+                                        keySimage:@"tabbar_contactsHL"},
+                                      
+                                      @{keyClass:@"AboutViewController",
+                                        keyTtitle:@"",
+                                        keyBtitle:@"我的",
+                                        keyNimage:@"tabbar_me",
+                                        keySimage:@"tabbar_meHL"}
+                                      ];
     
-}
+    
+    [childViewControllers enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
+        
+        [self setUpController:dict[keyClass] Title:dict[keyTtitle] ItemTitle:dict[keyBtitle] Image:dict[keyNimage] SelectImage:dict[keySimage]];
+        
+    }];//@enumerateObjectsUsingBlock
+
+}//@setUpChildViewControllers
 
 
 /**
@@ -101,11 +100,20 @@
  *  @param selectImageName          选中图片
  */
 
-- (void)setUpController:(UIViewController *)vc Title:(nullable NSString *)title ItemTitle:(NSString *)itemTitle Image:(NSString *)imageName SelectImage:(NSString *)selectImageName
+- (void)setUpController:(NSString *)class Title:(nullable NSString *)title ItemTitle:(NSString *)itemTitle Image:(NSString *)imageName SelectImage:(NSString *)selectImageName
 {
+    UIViewController *vc = [[NSClassFromString(class) alloc] init];
+    
     HXNavigationController *HXNaVc = [[HXNavigationController alloc] initWithRootViewController:vc];
     //设置导航栏背景图片
-    [HXNaVc.navigationBar setBackgroundImage:[[UIImage imageNamed:@"home-10.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forBarMetrics:UIBarMetricsDefault];
+    UIImage *bgImage = [self imageWithColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.8] size:CGSizeMake(self.tabBar.frame.size.width, self.tabBar.frame.size.height)];
+    [HXNaVc.navigationBar setBackgroundImage:[bgImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forBarMetrics:UIBarMetricsDefault];
+    
+    //添加阴影图片，用来隐藏导航栏底部线条
+    UIImage *shadowImage = [self imageWithColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.0] size:CGSizeMake(self.tabBar.frame.size.width, 1)];
+    [HXNaVc.navigationBar setShadowImage:shadowImage];
+    
+    
     //导航栏上title字体的颜色
     //    HXNaVc.navigationBar.titleTextAttributes = @{UITextAttributeTextColor:[UIColor whiteColor]};
     HXNaVc.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
@@ -122,20 +130,49 @@
     //    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(NSIntegerMin, NSIntegerMin) forBarMetrics:UIBarMetricsDefault];
     
     
-    //    vc.title = title;//与navigationItem.title效果相同
+        vc.title = title;//与navigationItem.title效果相同
     //    vc.navigationItem.title = title;
-    //    vc.tabBarItem.title = itemTitle;
+    
+    vc.tabBarItem.title = itemTitle;
     vc.tabBarItem.image = [[UIImage imageNamed:imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     //selectedImage支持iOS7以后的系统
     vc.tabBarItem.selectedImage = [[UIImage imageNamed:selectImageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     //tabBarItem图片位置
-    CGFloat offset = 5.0f;
-    vc.tabBarItem.imageInsets = UIEdgeInsetsMake(offset, 0, -offset, 0);
+//    CGFloat offset = 5.0f;
+//    vc.tabBarItem.imageInsets = UIEdgeInsetsMake(offset, 0, -offset, 0);
+    
+    
+
     
     [self addChildViewController:HXNaVc];
     
 }
+
+
+-(UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size
+{
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    
+    UIGraphicsBeginImageContext(rect.size);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    
+    CGContextFillRect(context, rect);
+    
+    
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    
+    return image;
+    
+}
+
 
 
 /*
