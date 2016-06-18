@@ -7,8 +7,25 @@
 //
 
 #import "HomeViewController.h"
+#import "RectangleView.h"
+#import "PicturesLoop.h"
 
-@interface HomeViewController ()
+
+#define CellHeightForRow
+#define CellHeightForHeader
+#define CellHeightForFooter (20)
+
+// 注意const的位置
+static NSString *const cellId = @"cellId";
+static NSString *const headerId = @"headerId";
+static NSString *const footerId = @"footerId";
+
+
+@interface HomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+
+@property (nonatomic, strong) UICollectionViewFlowLayout *collectionViewFlowLayout;
+@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) NSArray *array;
 
 @end
 
@@ -23,10 +40,14 @@
                                                 [self setupBarButtonItemWihtImageName:@"tabbar_contacts"],
                                                 [self setupBarButtonItemWihtImageName:@"tabbar_discover"]];
     
-    
+    _array = [[NSArray alloc] initWithObjects:@"1", @"2", @"3", nil];
 //    self.navigationController.navigationBar.hidden = YES;
     
     [self setupScanView];
+    
+
+    
+    [self.view addSubview:self.collectionView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,7 +56,7 @@
 }
 
 
-//导航栏
+//导航栏Items
 - (UIBarButtonItem *)setupBarButtonItemWihtImageName:(NSString *)imageName
 {
     //tabbar_mainframe,tabbar_discover,tabbar_contacts
@@ -61,6 +82,240 @@
 }
 
 
+
+#pragma mark - UICollectionViewDelegate
+- (UICollectionView *)collectionView
+{
+    if (!_collectionView) {
+        
+        _collectionViewFlowLayout = [[UICollectionViewFlowLayout alloc] init];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 164, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-164-49) collectionViewLayout:_collectionViewFlowLayout];
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        
+        _collectionView.backgroundColor = [UIColor whiteColor];
+        
+        // 注册cell、sectionHeader、sectionFooter
+        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellId];
+        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerId];
+        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:footerId];
+    
+        
+        //此方法用来消除Grouped样式头部空白
+//        _tableView.contentInset = UIEdgeInsetsMake(5, 0, 0, 0);
+    }
+    return _collectionView;
+    
+}//@collectionView
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 3;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+//    return _array.count;
+    return 1;
+}
+
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor purpleColor];
+    
+//    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+//    lab.backgroundColor = [UIColor orangeColor];
+//    [cell.contentView addSubview:lab];
+    
+    if (indexPath.section == 0) {
+            NSInteger num = 10;
+            NSMutableArray *mArray = [[NSMutableArray alloc] initWithCapacity:0];
+            for (int i = 0; i < num; i++) {
+                [mArray addObject:[NSString stringWithFormat:@"num%d", i]];
+            }
+            RectangleView *rectangle = [[RectangleView alloc] initWithFrame:CGRectMake(0, 0, 320, 74*3) WithArray:mArray];
+            [cell.contentView addSubview:rectangle];
+    
+    }//@section == 0
+    
+    if (indexPath.section == 1) {
+        NSInteger num = 4;
+        NSMutableArray *mArray = [[NSMutableArray alloc] initWithCapacity:0];
+        for (int i = 1; i <= num; i++) {
+            [mArray addObject:[NSString stringWithFormat:@"pictureloop%d.jpg", i]];
+        }
+        PicturesLoop *pictureLoop = [[PicturesLoop alloc] initWithFrame:CGRectMake(0, 0, 320, 74) WithImages:mArray];
+        [cell.contentView addSubview:pictureLoop];
+    
+    }//@section == 1
+
+    
+    if (indexPath.section == 2) {
+        NSInteger num = 22;
+        NSMutableArray *mArray = [[NSMutableArray alloc] initWithCapacity:0];
+        for (int i = 0; i < num; i++) {
+            [mArray addObject:[NSString stringWithFormat:@"num%d", i]];
+        }
+        RectangleView *rectangle = [[RectangleView alloc] initWithFrame:CGRectMake(0, 0, 320, 74*6) WithArray:mArray];
+        [cell.contentView addSubview:rectangle];
+    
+    }//@section == 2
+    
+    return cell;
+}
+
+// 和UITableView类似，UICollectionView也可设置段头段尾
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if([kind isEqualToString:UICollectionElementKindSectionHeader])
+    {
+        UICollectionReusableView *headerView = [_collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:headerId forIndexPath:indexPath];
+        if(headerView == nil)
+        {
+            headerView = [[UICollectionReusableView alloc] init];
+        }
+        headerView.backgroundColor = [UIColor grayColor];
+        
+        return headerView;
+    }
+    else if([kind isEqualToString:UICollectionElementKindSectionFooter])
+    {
+        UICollectionReusableView *footerView = [_collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:footerId forIndexPath:indexPath];
+        if(footerView == nil)
+        {
+            footerView = [[UICollectionReusableView alloc] init];
+        }
+        footerView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.05];
+        
+        return footerView;
+    }
+    
+    return nil;
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+
+- (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath*)destinationIndexPath
+{
+    
+}
+
+
+
+
+#pragma mark ---- UICollectionViewDelegateFlowLayout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        return CGSizeMake(self.view.bounds.size.width, 74*3);
+    }
+    if (indexPath.section == 1) {
+        return CGSizeMake(self.view.bounds.size.width, 74);
+    }
+    if (indexPath.section == 2) {
+        return CGSizeMake(self.view.bounds.size.width, 74*6);
+    }
+    return CGSizeMake(50, 50);
+}
+
+
+
+
+//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+//{
+//    return UIEdgeInsetsMake(5, 5, 5, 5);
+//}
+
+
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+//{
+//    return 5.f;
+//}
+
+
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+//{
+//    return 5.f;
+//}
+
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    return (CGSize){0,0};
+}
+
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
+{
+    return (CGSize){self.view.frame.size.width, 15};
+}
+
+
+
+
+#pragma mark ---- UICollectionViewDelegate
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+// 点击高亮
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    cell.backgroundColor = [UIColor greenColor];
+}
+
+
+// 选中某item
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+
+// 长按某item，弹出copy和paste的菜单
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+// 使copy和paste有效
+- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(nullable id)sender
+{
+    if ([NSStringFromSelector(action) isEqualToString:@"copy:"] || [NSStringFromSelector(action) isEqualToString:@"paste:"])
+    {
+        return YES;
+    }
+    
+    return NO;
+}
+
+//
+//- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(nullable id)sender
+//{
+//    if([NSStringFromSelector(action) isEqualToString:@"copy:"])
+//    {
+//        //        NSLog(@"-------------执行拷贝-------------");
+//        [_collectionView performBatchUpdates:^{
+//            [_section0Array removeObjectAtIndex:indexPath.row];
+//            [_collectionView deleteItemsAtIndexPaths:@[indexPath]];
+//        } completion:nil];
+//    }
+//    else if([NSStringFromSelector(action) isEqualToString:@"paste:"])
+//    {
+//        NSLog(@"-------------执行粘贴-------------");
+//    }
+//}
 
 //- (UIStatusBarStyle)preferredStatusBarStyle
 //{
