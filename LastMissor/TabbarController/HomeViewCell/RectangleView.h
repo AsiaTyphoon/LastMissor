@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol RectangleViewDelegate <NSObject>
+
+@optional   //可以不实现
+- (void)didClickBtnWithDictionary:(NSDictionary *)dic;
+
+
+@end
+
 @interface RectangleView : UIView
+
+@property (nonatomic, assign) id<RectangleViewDelegate> delegate;
 
 - (id)initWithFrame:(CGRect)frame WithArray:(NSArray *)dicArray;
 

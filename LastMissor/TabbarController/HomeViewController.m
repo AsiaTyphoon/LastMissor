@@ -9,11 +9,18 @@
 #import "HomeViewController.h"
 #import "RectangleView.h"
 #import "PicturesLoop.h"
+#import "AnimationViewController.h"
 
 
 #define CellHeightForRow
 #define CellHeightForHeader
 #define CellHeightForFooter (20)
+
+//dictionary key
+#define keyImg      (@"keyImg")
+#define keyText     (@"keyText")
+#define keyVc       (@"keyVc")
+
 
 // 注意const的位置
 static NSString *const cellId = @"cellId";
@@ -21,11 +28,13 @@ static NSString *const headerId = @"headerId";
 static NSString *const footerId = @"footerId";
 
 
-@interface HomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface HomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RectangleViewDelegate>
 
 @property (nonatomic, strong) UICollectionViewFlowLayout *collectionViewFlowLayout;
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) NSArray *array;
+
+@property (nonatomic, strong) NSArray *vcArray;
+@property (nonatomic, strong) NSMutableArray *mvcArray;
 
 @end
 
@@ -40,21 +49,89 @@ static NSString *const footerId = @"footerId";
                                                 [self setupBarButtonItemWihtImageName:@"tabbar_contacts"],
                                                 [self setupBarButtonItemWihtImageName:@"tabbar_discover"]];
     
-    _array = [[NSArray alloc] initWithObjects:@"1", @"2", @"3", nil];
-//    self.navigationController.navigationBar.hidden = YES;
+    [self loadData];
     
     [self setupScanView];
     
-
     
     [self.view addSubview:self.collectionView];
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    self.tabBarController.tabBar.hidden = NO;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)loadData
+{
+    _vcArray = @[
+                          @{keyVc:@"AnimationViewController",
+                            keyText:@"Animation",
+                            keyImg:@""},
+                          
+                          @{keyVc:@"AnimationViewController",
+                            keyText:@"Animation",
+                            keyImg:@""},
+                          
+                          @{keyVc:@"AnimationViewController",
+                            keyText:@"Animation",
+                            keyImg:@""},
+                          
+                          @{keyVc:@"AnimationViewController",
+                            keyText:@"Animation",
+                            keyImg:@""},
+                          
+                          @{keyVc:@"AnimationViewController",
+                            keyText:@"Animation",
+                            keyImg:@""},
+                          
+                          @{keyVc:@"AnimationViewController",
+                            keyText:@"Animation",
+                            keyImg:@""},
+                          
+                          @{keyVc:@"AnimationViewController",
+                            keyText:@"Animation",
+                            keyImg:@""},
+                          
+                          @{keyVc:@"AnimationViewController",
+                            keyText:@"Animation",
+                            keyImg:@""},
+                          
+                          @{keyVc:@"AnimationViewController",
+                            keyText:@"Animation",
+                            keyImg:@""},
+                          
+                          @{keyVc:@"AnimationViewController",
+                            keyText:@"Animation",
+                            keyImg:@""},
+                          
+                          @{keyVc:@"AnimationViewController",
+                            keyText:@"Animation",
+                            keyImg:@""},
+                          
+                          @{keyVc:@"AnimationViewController",
+                            keyText:@"Animation",
+                            keyImg:@""},
+                          ];
+
+    
+    _mvcArray = [[NSMutableArray alloc] initWithCapacity:0];
+    int N = 22;
+    for (int i = 0; i < N; i++) {
+        
+        [_mvcArray addObject:@{keyVc:@"AnimationViewController",
+                               keyText:@"Animation",
+                               keyImg:@""}];
+    }
+}
 
 //导航栏Items
 - (UIBarButtonItem *)setupBarButtonItemWihtImageName:(NSString *)imageName
@@ -130,13 +207,10 @@ static NSString *const footerId = @"footerId";
 //    [cell.contentView addSubview:lab];
     
     if (indexPath.section == 0) {
-            NSInteger num = 10;
-            NSMutableArray *mArray = [[NSMutableArray alloc] initWithCapacity:0];
-            for (int i = 0; i < num; i++) {
-                [mArray addObject:[NSString stringWithFormat:@"num%d", i]];
-            }
-            RectangleView *rectangle = [[RectangleView alloc] initWithFrame:CGRectMake(0, 0, 320, 74*3) WithArray:mArray];
-            [cell.contentView addSubview:rectangle];
+        
+        RectangleView *rectangle = [[RectangleView alloc] initWithFrame:CGRectMake(0, 0, 320, 74*3) WithArray:_vcArray];
+        rectangle.delegate = self;
+        [cell.contentView addSubview:rectangle];
     
     }//@section == 0
     
@@ -153,12 +227,8 @@ static NSString *const footerId = @"footerId";
 
     
     if (indexPath.section == 2) {
-        NSInteger num = 22;
-        NSMutableArray *mArray = [[NSMutableArray alloc] initWithCapacity:0];
-        for (int i = 0; i < num; i++) {
-            [mArray addObject:[NSString stringWithFormat:@"num%d", i]];
-        }
-        RectangleView *rectangle = [[RectangleView alloc] initWithFrame:CGRectMake(0, 0, 320, 74*6) WithArray:mArray];
+        
+        RectangleView *rectangle = [[RectangleView alloc] initWithFrame:CGRectMake(0, 0, 320, 74*6) WithArray:_mvcArray];
         [cell.contentView addSubview:rectangle];
     
     }//@section == 2
@@ -300,6 +370,8 @@ static NSString *const footerId = @"footerId";
     return NO;
 }
 
+
+
 //
 //- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(nullable id)sender
 //{
@@ -333,6 +405,15 @@ static NSString *const footerId = @"footerId";
     // Pass the selected object to the new view controller.
 }
 */
+
+
+#pragma mark - RectangleViewDelegate
+- (void)didClickBtnWithDictionary:(NSDictionary *)dic {
+    
+    UIViewController *viewcontroller = [[NSClassFromString(dic[@"keyVc"]) alloc] init];
+    viewcontroller.title = @"Animation";
+    [self.navigationController pushViewController:viewcontroller animated:YES];
+}
 
 /*
  在老版本的iOS中，状态栏永远都是白色风格。而在iOS 7中，我们可以修改每个view controller中状态栏的外观。通过UIStatusBarStyle常量可以指定状态栏的内容是暗色或亮色。默认情况下，状态栏的显示是暗色。也就是说，状态栏上的时间、电池指示器和Wi-Fi信号显示为暗色。

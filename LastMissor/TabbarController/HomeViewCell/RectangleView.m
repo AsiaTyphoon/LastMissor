@@ -6,7 +6,10 @@
 //  Copyright © 2016年 JiangLin. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "RectangleView.h"
+
+#define objc_setAssociatedButtonKey     (@"objc_setAssociatedButtonKey")
 
 @interface RectangleView ()
 {
@@ -41,21 +44,34 @@
             CGFloat btnX = btnW*rowIndex;
             CGFloat btnY = btnH*lineIndex;
             
+            NSDictionary *dic = (NSDictionary *)[dicArray objectAtIndex:i];
+            
             UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(btnX, btnY, btnW, btnH)];
-            [button setTitle:[dicArray objectAtIndex:i] forState:UIControlStateNormal];
+            [button setTitle:dic[@"keyText"] forState:UIControlStateNormal];
+            button.titleLabel.font = [UIFont systemFontOfSize:12];
             [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             [button addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
             button.tag = i;
+            objc_setAssociatedObject(button, objc_setAssociatedButtonKey, dic, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
             [self addSubview:button];
         }
     }
     return self;
+    
 }//@initWithFrame
 
 - (void)btnAction:(id)sender
 {
     UIButton *button = (UIButton *)sender;
-    NSLog(@"button.tag:%ld", button.tag);
+
+    NSDictionary *dic = (NSDictionary *)objc_getAssociatedObject(sender, objc_setAssociatedButtonKey);
+    
+//    NSLog(@"sender:%@", dic);
+//    NSLog(@"button.tag:%ld", button.tag);
+    
+    if (self.delegate) {
+        [self.delegate didClickBtnWithDictionary:dic];
+    }
 }
 
 

@@ -47,6 +47,7 @@
 		EE2AE06E1D1533FD0024CCAA /* pictureloop2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EE2AE06A1D1533FD0024CCAA /* pictureloop2.jpg */; };
 		EE2AE06F1D1533FD0024CCAA /* pictureloop3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EE2AE06B1D1533FD0024CCAA /* pictureloop3.jpg */; };
 		EE2AE0701D1533FD0024CCAA /* pictureloop4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EE2AE06C1D1533FD0024CCAA /* pictureloop4.jpg */; };
+		EE3AC8D01D17782C00DC9D04 /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE3AC8CF1D17782C00DC9D04 /* AnimationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,8 @@
 		EE2AE06A1D1533FD0024CCAA /* pictureloop2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pictureloop2.jpg; sourceTree = "<group>"; };
 		EE2AE06B1D1533FD0024CCAA /* pictureloop3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pictureloop3.jpg; sourceTree = "<group>"; };
 		EE2AE06C1D1533FD0024CCAA /* pictureloop4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pictureloop4.jpg; sourceTree = "<group>"; };
+		EE3AC8CE1D17782C00DC9D04 /* AnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationViewController.h; sourceTree = "<group>"; };
+		EE3AC8CF1D17782C00DC9D04 /* AnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +239,7 @@
 				EE1506E31D12A49C009A22B1 /* Supporting Files */,
 				EE1507161D12A8A1009A22B1 /* MainController */,
 				EE0CDE491D13C5E20034525D /* TabbarController */,
+				EE3AC8CD1D17782C00DC9D04 /* Animation */,
 				EE0CDE561D13D5FA0034525D /* Resources */,
 			);
 			path = LastMissor;
@@ -314,6 +318,15 @@
 				EE2AE06C1D1533FD0024CCAA /* pictureloop4.jpg */,
 			);
 			path = LoopPictures;
+			sourceTree = "<group>";
+		};
+		EE3AC8CD1D17782C00DC9D04 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				EE3AC8CE1D17782C00DC9D04 /* AnimationViewController.h */,
+				EE3AC8CF1D17782C00DC9D04 /* AnimationViewController.m */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,6 +483,7 @@
 				EE2AE05C1D152F030024CCAA /* BubbleView.m in Sources */,
 				EE15071F1D12A93E009A22B1 /* HXViewController.m in Sources */,
 				EE1506EB1D12A49C009A22B1 /* ViewController.m in Sources */,
+				EE3AC8D01D17782C00DC9D04 /* AnimationViewController.m in Sources */,
 				EE1506E81D12A49C009A22B1 /* AppDelegate.m in Sources */,
 				EE1506E51D12A49C009A22B1 /* main.m in Sources */,
 				EE0CDE521D13C6FE0034525D /* FriendViewController.m in Sources */,
