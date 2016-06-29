@@ -24,6 +24,11 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
+    for (UIWindow *window in [UIApplication sharedApplication].windows) {
+        
+        NSLog(@"window:%@", [NSString stringWithUTF8String:object_getClassName(window)]);
+    }
+    
     
     return YES;
 }

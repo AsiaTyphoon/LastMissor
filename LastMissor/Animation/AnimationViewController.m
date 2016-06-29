@@ -7,6 +7,7 @@
 //
 
 #import "AnimationViewController.h"
+#import "HXProgress.h"
 
 #define UISCREEN_WIDTH  ([UIScreen mainScreen].bounds.size.width)
 #define UISCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
@@ -60,10 +61,10 @@
     [_btnArray addObject:@"取反"];
     [_btnArray addObject:@"平移"];
     [_btnArray addObject:@"彩虹"];
+    [_btnArray addObject:@"弹框"];
+    [_btnArray addObject:@"miss"];
+    [_btnArray addObject:@"提示"];
     
-//    [_btnArray addObject:@"旋转"];
-//    [_btnArray addObject:@"翻页"];
-//    [_btnArray addObject:@"缩放"];
 //    [_btnArray addObject:@"取反"];
 //    [_btnArray addObject:@"平移"];
 //    [_btnArray addObject:@"平移"];
@@ -191,6 +192,22 @@
     {
         //方法五
         [self runAnimateKeyframes];
+    }
+    
+    
+    if (btn.tag == [_btnArray indexOfObject:@"弹框"]) {
+        
+        [HXProgress showProgressWithSize:CGSizeMake(100, 100)];
+    }
+    
+    if (btn.tag == [_btnArray indexOfObject:@"miss"]) {
+        
+        [HXProgress dismiss];
+    }
+    
+    if (btn.tag == [_btnArray indexOfObject:@"提示"]) {
+        
+        [HXProgress showText:@"提示" withSize:CGSizeMake(100, 50) durationTime:2];
     }
 }
 
