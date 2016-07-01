@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE0AE4FD1D261B6300AD1C04 /* UIImage+Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0AE4FC1D261B6300AD1C04 /* UIImage+Colors.m */; };
+		EE0AE5001D261CAC00AD1C04 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0AE4FF1D261CAC00AD1C04 /* UIColor+Hex.m */; };
 		EE0CDE4C1D13C6DD0034525D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0CDE4B1D13C6DD0034525D /* HomeViewController.m */; };
 		EE0CDE4F1D13C6F10034525D /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0CDE4E1D13C6F10034525D /* FoodViewController.m */; };
 		EE0CDE521D13C6FE0034525D /* FriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0CDE511D13C6FE0034525D /* FriendViewController.m */; };
@@ -69,6 +71,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE0AE4FB1D261B6300AD1C04 /* UIImage+Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Colors.h"; sourceTree = "<group>"; };
+		EE0AE4FC1D261B6300AD1C04 /* UIImage+Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Colors.m"; sourceTree = "<group>"; };
+		EE0AE4FE1D261CAC00AD1C04 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		EE0AE4FF1D261CAC00AD1C04 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		EE0CDE4A1D13C6DD0034525D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		EE0CDE4B1D13C6DD0034525D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		EE0CDE4D1D13C6F10034525D /* FoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodViewController.h; sourceTree = "<group>"; };
@@ -243,6 +249,7 @@
 				EE1507161D12A8A1009A22B1 /* MainController */,
 				EE0CDE491D13C5E20034525D /* TabbarController */,
 				EE3AC8CD1D17782C00DC9D04 /* Animation */,
+				EE24ACFB1D25182D0000C8BB /* Category */,
 				EE0CDE561D13D5FA0034525D /* Resources */,
 			);
 			path = LastMissor;
@@ -285,6 +292,17 @@
 				EE15071E1D12A93E009A22B1 /* HXViewController.m */,
 			);
 			path = MainController;
+			sourceTree = "<group>";
+		};
+		EE24ACFB1D25182D0000C8BB /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				EE0AE4FB1D261B6300AD1C04 /* UIImage+Colors.h */,
+				EE0AE4FC1D261B6300AD1C04 /* UIImage+Colors.m */,
+				EE0AE4FE1D261CAC00AD1C04 /* UIColor+Hex.h */,
+				EE0AE4FF1D261CAC00AD1C04 /* UIColor+Hex.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		EE2AE0491D14F7B20024CCAA /* HomeViewCell */ = {
@@ -486,6 +504,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE2AE05C1D152F030024CCAA /* BubbleView.m in Sources */,
+				EE0AE5001D261CAC00AD1C04 /* UIColor+Hex.m in Sources */,
 				EE15071F1D12A93E009A22B1 /* HXViewController.m in Sources */,
 				EE1506EB1D12A49C009A22B1 /* ViewController.m in Sources */,
 				EE3AC8D01D17782C00DC9D04 /* AnimationViewController.m in Sources */,
@@ -496,6 +515,7 @@
 				EE2AE05E1D152F030024CCAA /* PicturesLoop.m in Sources */,
 				EE2AE0521D1517AE0024CCAA /* RectangleView.m in Sources */,
 				EE15071C1D12A925009A22B1 /* HXTabBarController.m in Sources */,
+				EE0AE4FD1D261B6300AD1C04 /* UIImage+Colors.m in Sources */,
 				EE0CDE551D13C7080034525D /* AboutViewController.m in Sources */,
 				EE0CDE4C1D13C6DD0034525D /* HomeViewController.m in Sources */,
 				EE0CDE4F1D13C6F10034525D /* FoodViewController.m in Sources */,

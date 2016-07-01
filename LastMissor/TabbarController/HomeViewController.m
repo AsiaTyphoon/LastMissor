@@ -55,6 +55,7 @@ static NSString *const footerId = @"footerId";
     
     
     [self.view addSubview:self.collectionView];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
