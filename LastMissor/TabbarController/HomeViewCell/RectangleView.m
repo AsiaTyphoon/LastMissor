@@ -62,7 +62,7 @@
 
 - (void)btnAction:(id)sender
 {
-    UIButton *button = (UIButton *)sender;
+//    UIButton *button = (UIButton *)sender;
 
     NSDictionary *dic = (NSDictionary *)objc_getAssociatedObject(sender, objc_setAssociatedButtonKey);
     

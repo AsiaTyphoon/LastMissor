@@ -50,6 +50,15 @@
 		EE2AE06F1D1533FD0024CCAA /* pictureloop3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EE2AE06B1D1533FD0024CCAA /* pictureloop3.jpg */; };
 		EE2AE0701D1533FD0024CCAA /* pictureloop4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EE2AE06C1D1533FD0024CCAA /* pictureloop4.jpg */; };
 		EE2FC6621D235F9D006E3F7F /* HXProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = EE2FC6611D235F9D006E3F7F /* HXProgress.m */; };
+		EE35FB491D2BB6870032EB89 /* icon40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE35FB451D2BB6870032EB89 /* icon40@2x.png */; };
+		EE35FB4A1D2BB6870032EB89 /* icon40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE35FB461D2BB6870032EB89 /* icon40@3x.png */; };
+		EE35FB4B1D2BB6870032EB89 /* icon60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE35FB471D2BB6870032EB89 /* icon60@3x.png */; };
+		EE35FB4C1D2BB6870032EB89 /* quickplay.png in Resources */ = {isa = PBXBuildFile; fileRef = EE35FB481D2BB6870032EB89 /* quickplay.png */; };
+		EE35FB581D2BB7C10032EB89 /* OCFoldTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE35FB4F1D2BB7C10032EB89 /* OCFoldTableViewController.m */; };
+		EE35FB591D2BB7C10032EB89 /* OCNinegridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE35FB511D2BB7C10032EB89 /* OCNinegridViewController.m */; };
+		EE35FB5A1D2BB7C10032EB89 /* OCPinchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE35FB531D2BB7C10032EB89 /* OCPinchViewController.m */; };
+		EE35FB5B1D2BB7C10032EB89 /* OCScanLifeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE35FB551D2BB7C10032EB89 /* OCScanLifeViewController.m */; };
+		EE35FB5C1D2BB7C10032EB89 /* OCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE35FB571D2BB7C10032EB89 /* OCSearchViewController.m */; };
 		EE3AC8D01D17782C00DC9D04 /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE3AC8CF1D17782C00DC9D04 /* AnimationViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +146,20 @@
 		EE2AE06C1D1533FD0024CCAA /* pictureloop4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pictureloop4.jpg; sourceTree = "<group>"; };
 		EE2FC6601D235F9D006E3F7F /* HXProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXProgress.h; sourceTree = "<group>"; };
 		EE2FC6611D235F9D006E3F7F /* HXProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXProgress.m; sourceTree = "<group>"; };
+		EE35FB451D2BB6870032EB89 /* icon40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon40@2x.png"; sourceTree = "<group>"; };
+		EE35FB461D2BB6870032EB89 /* icon40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon40@3x.png"; sourceTree = "<group>"; };
+		EE35FB471D2BB6870032EB89 /* icon60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon60@3x.png"; sourceTree = "<group>"; };
+		EE35FB481D2BB6870032EB89 /* quickplay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quickplay.png; sourceTree = "<group>"; };
+		EE35FB4E1D2BB7C10032EB89 /* OCFoldTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCFoldTableViewController.h; sourceTree = "<group>"; };
+		EE35FB4F1D2BB7C10032EB89 /* OCFoldTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCFoldTableViewController.m; sourceTree = "<group>"; };
+		EE35FB501D2BB7C10032EB89 /* OCNinegridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCNinegridViewController.h; sourceTree = "<group>"; };
+		EE35FB511D2BB7C10032EB89 /* OCNinegridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCNinegridViewController.m; sourceTree = "<group>"; };
+		EE35FB521D2BB7C10032EB89 /* OCPinchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCPinchViewController.h; sourceTree = "<group>"; };
+		EE35FB531D2BB7C10032EB89 /* OCPinchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCPinchViewController.m; sourceTree = "<group>"; };
+		EE35FB541D2BB7C10032EB89 /* OCScanLifeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCScanLifeViewController.h; sourceTree = "<group>"; };
+		EE35FB551D2BB7C10032EB89 /* OCScanLifeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCScanLifeViewController.m; sourceTree = "<group>"; };
+		EE35FB561D2BB7C10032EB89 /* OCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSearchViewController.h; sourceTree = "<group>"; };
+		EE35FB571D2BB7C10032EB89 /* OCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSearchViewController.m; sourceTree = "<group>"; };
 		EE3AC8CE1D17782C00DC9D04 /* AnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationViewController.h; sourceTree = "<group>"; };
 		EE3AC8CF1D17782C00DC9D04 /* AnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,6 +208,7 @@
 		EE0CDE561D13D5FA0034525D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EE35FB441D2BB6870032EB89 /* Icon&Default */,
 				EE2AE0601D1533C50024CCAA /* LoopPictures */,
 				EE0CDE571D13D5FA0034525D /* TabbarPictures */,
 			);
@@ -250,6 +274,7 @@
 				EE0CDE491D13C5E20034525D /* TabbarController */,
 				EE3AC8CD1D17782C00DC9D04 /* Animation */,
 				EE24ACFB1D25182D0000C8BB /* Category */,
+				EE35FB4D1D2BB7C10032EB89 /* ObjectiveUI */,
 				EE0CDE561D13D5FA0034525D /* Resources */,
 			);
 			path = LastMissor;
@@ -339,6 +364,34 @@
 				EE2AE06C1D1533FD0024CCAA /* pictureloop4.jpg */,
 			);
 			path = LoopPictures;
+			sourceTree = "<group>";
+		};
+		EE35FB441D2BB6870032EB89 /* Icon&Default */ = {
+			isa = PBXGroup;
+			children = (
+				EE35FB451D2BB6870032EB89 /* icon40@2x.png */,
+				EE35FB461D2BB6870032EB89 /* icon40@3x.png */,
+				EE35FB471D2BB6870032EB89 /* icon60@3x.png */,
+				EE35FB481D2BB6870032EB89 /* quickplay.png */,
+			);
+			path = "Icon&Default";
+			sourceTree = "<group>";
+		};
+		EE35FB4D1D2BB7C10032EB89 /* ObjectiveUI */ = {
+			isa = PBXGroup;
+			children = (
+				EE35FB4E1D2BB7C10032EB89 /* OCFoldTableViewController.h */,
+				EE35FB4F1D2BB7C10032EB89 /* OCFoldTableViewController.m */,
+				EE35FB501D2BB7C10032EB89 /* OCNinegridViewController.h */,
+				EE35FB511D2BB7C10032EB89 /* OCNinegridViewController.m */,
+				EE35FB521D2BB7C10032EB89 /* OCPinchViewController.h */,
+				EE35FB531D2BB7C10032EB89 /* OCPinchViewController.m */,
+				EE35FB541D2BB7C10032EB89 /* OCScanLifeViewController.h */,
+				EE35FB551D2BB7C10032EB89 /* OCScanLifeViewController.m */,
+				EE35FB561D2BB7C10032EB89 /* OCSearchViewController.h */,
+				EE35FB571D2BB7C10032EB89 /* OCSearchViewController.m */,
+			);
+			path = ObjectiveUI;
 			sourceTree = "<group>";
 		};
 		EE3AC8CD1D17782C00DC9D04 /* Animation */ = {
@@ -458,11 +511,14 @@
 			files = (
 				EE1506F31D12A49C009A22B1 /* LaunchScreen.storyboard in Resources */,
 				EE0CDE751D13D5FA0034525D /* tabbar_me@3x.png in Resources */,
+				EE35FB4C1D2BB6870032EB89 /* quickplay.png in Resources */,
 				EE0CDE731D13D5FA0034525D /* tabbar_mainframeHL@3x.png in Resources */,
 				EE0CDE721D13D5FA0034525D /* tabbar_mainframeHL@2x.png in Resources */,
 				EE0CDE6A1D13D5FA0034525D /* tabbar_contactsHL@2x.png in Resources */,
 				EE0CDE681D13D5FA0034525D /* tabbar_contacts@2x.png in Resources */,
+				EE35FB4A1D2BB6870032EB89 /* icon40@3x.png in Resources */,
 				EE0CDE711D13D5FA0034525D /* tabbar_mainframe@3x.png in Resources */,
+				EE35FB4B1D2BB6870032EB89 /* icon60@3x.png in Resources */,
 				EE2AE06F1D1533FD0024CCAA /* pictureloop3.jpg in Resources */,
 				EE0CDE701D13D5FA0034525D /* tabbar_mainframe@2x.png in Resources */,
 				EE1506F01D12A49C009A22B1 /* Assets.xcassets in Resources */,
@@ -471,6 +527,7 @@
 				EE0CDE761D13D5FA0034525D /* tabbar_meHL@2x.png in Resources */,
 				EE0CDE6F1D13D5FA0034525D /* tabbar_discoverHL@3x.png in Resources */,
 				EE0CDE741D13D5FA0034525D /* tabbar_me@2x.png in Resources */,
+				EE35FB491D2BB6870032EB89 /* icon40@2x.png in Resources */,
 				EE2AE06E1D1533FD0024CCAA /* pictureloop2.jpg in Resources */,
 				EE0CDE6E1D13D5FA0034525D /* tabbar_discoverHL@2x.png in Resources */,
 				EE0CDE6D1D13D5FA0034525D /* tabbar_discover@3x.png in Resources */,
@@ -503,6 +560,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE35FB581D2BB7C10032EB89 /* OCFoldTableViewController.m in Sources */,
 				EE2AE05C1D152F030024CCAA /* BubbleView.m in Sources */,
 				EE0AE5001D261CAC00AD1C04 /* UIColor+Hex.m in Sources */,
 				EE15071F1D12A93E009A22B1 /* HXViewController.m in Sources */,
@@ -513,10 +571,14 @@
 				EE1506E51D12A49C009A22B1 /* main.m in Sources */,
 				EE0CDE521D13C6FE0034525D /* FriendViewController.m in Sources */,
 				EE2AE05E1D152F030024CCAA /* PicturesLoop.m in Sources */,
+				EE35FB5B1D2BB7C10032EB89 /* OCScanLifeViewController.m in Sources */,
+				EE35FB5A1D2BB7C10032EB89 /* OCPinchViewController.m in Sources */,
 				EE2AE0521D1517AE0024CCAA /* RectangleView.m in Sources */,
 				EE15071C1D12A925009A22B1 /* HXTabBarController.m in Sources */,
+				EE35FB591D2BB7C10032EB89 /* OCNinegridViewController.m in Sources */,
 				EE0AE4FD1D261B6300AD1C04 /* UIImage+Colors.m in Sources */,
 				EE0CDE551D13C7080034525D /* AboutViewController.m in Sources */,
+				EE35FB5C1D2BB7C10032EB89 /* OCSearchViewController.m in Sources */,
 				EE0CDE4C1D13C6DD0034525D /* HomeViewController.m in Sources */,
 				EE0CDE4F1D13C6F10034525D /* FoodViewController.m in Sources */,
 				EE2AE05D1D152F030024CCAA /* MultiColorView.m in Sources */,
@@ -667,6 +729,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LastMissor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MyIdentifier.LastMissor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -681,6 +744,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LastMissor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MyIdentifier.LastMissor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
