@@ -36,13 +36,14 @@
     return self;
 }
 
-+ (void)showProgressWithSize:(CGSize)size {
+
++ (void)showProgressSize:(CGSize)size Color:(UIColor *)color dissmissTime:(NSTimeInterval)seconds {
     
     CGFloat w = size.width;
     CGFloat h = size.height;
     
     UIWindow *window  = [[UIApplication sharedApplication].windows objectAtIndex:0];
-
+    
     HXProgress *p = [HXProgress sharedProgress];
     
     while (p.subviews.lastObject != nil) {
@@ -51,7 +52,7 @@
     
     p.frame = CGRectMake(0, 0, w, h);
     p.center = window.center;
-    p.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+    p.backgroundColor = color;
     p.clipsToBounds = YES;
     p.layer.cornerRadius = 5.0f;
     
@@ -60,66 +61,47 @@
     [activity startAnimating];
     
     [p addSubview:activity];
-
+    
     [window addSubview:p];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    if (seconds > 0) {
         
-        [activity stopAnimating];
-        
-        UIButton *btnDismiss = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, w, h)];
-        btnDismiss.titleLabel.font = [UIFont systemFontOfSize:14];
-        [btnDismiss setTitle:@"Time out!" forState:UIControlStateNormal];
-        [btnDismiss setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [btnDismiss addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
-        [p addSubview:btnDismiss];
-        
-    });
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(seconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            [activity stopAnimating];
+            
+            UIButton *btnDismiss = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, w, h)];
+            btnDismiss.titleLabel.font = [UIFont systemFontOfSize:14];
+            [btnDismiss setTitle:@"Time out!" forState:UIControlStateNormal];
+            [btnDismiss setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [btnDismiss addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+            [p addSubview:btnDismiss];
+            
+        });
+    }
+
+}
+
++ (void)showProgressWithSize:(CGSize)size withColor:(UIColor *)color {
+    
+    [self showProgressSize:size Color:color dissmissTime:0];
+}
+
++ (void)showProgressWithSize:(CGSize)size {
+   
+    [self showProgressSize:size Color:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.7] dissmissTime:0];
 }
 
 + (void)showProgressWithSize:(CGSize)size timeOut:(NSTimeInterval)time {
     
-    CGFloat w = size.width;
-    CGFloat h = size.height;
-    
-    UIWindow *window  = [[UIApplication sharedApplication].windows objectAtIndex:0];
-    
-    HXProgress *p = [HXProgress sharedProgress];
-    
-    while (p.subviews.lastObject != nil) {
-        [(UIView *)p.subviews.lastObject removeFromSuperview];
-    }
-    
-    p.frame = CGRectMake(0, 0, w, h);
-    p.center = window.center;
-    p.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-    p.clipsToBounds = YES;
-    p.layer.cornerRadius = 5.0f;
-    
-    UIActivityIndicatorView *activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    activity.center = CGPointMake(w/2, h/2);
-    [activity startAnimating];
-    
-    [p addSubview:activity];
-    
-    [window addSubview:p];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        [activity stopAnimating];
-        
-        UIButton *btnDismiss = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, w, h)];
-        btnDismiss.titleLabel.font = [UIFont systemFontOfSize:14];
-        [btnDismiss setTitle:@"Time out!" forState:UIControlStateNormal];
-        [btnDismiss setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [btnDismiss addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
-        [p addSubview:btnDismiss];
-        
-    });
-
+    [self showProgressSize:size Color:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.7] dissmissTime:time];
 }
 
-+ (void)showText:(NSString *)text withSize:(CGSize)size durationTime:(NSTimeInterval)time {
+
+
+
+
++ (void)showText:(NSString *)text Size:(CGSize)size Color:(UIColor *)color dissmissTime:(NSTimeInterval)seconds {
     
     UIWindow *window  = [[UIApplication sharedApplication].windows objectAtIndex:0];
     
@@ -128,44 +110,56 @@
     CGRect r = [p rectOfText:text WithFont:[UIFont systemFontOfSize:18]];
     CGFloat w = size.width > r.size.width ? size.width : r.size.width;
     CGFloat h = size.height > r.size.height ? size.height : r.size.height;
-
+    
     while (p.subviews.lastObject != nil) {
         [(UIView *)p.subviews.lastObject removeFromSuperview];
     }
     
     p.frame = CGRectMake(0, 0, w, h);
     p.center = window.center;
-    p.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+    p.backgroundColor = color;
     p.clipsToBounds = YES;
     p.layer.cornerRadius = 5.0f;
     
-
+    
     UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, r.size.width, r.size.height)];
     l.text = text;
     l.textColor = [UIColor whiteColor];
     l.textAlignment = NSTextAlignmentCenter;
     l.center = CGPointMake(w/2, h/2);
-//    l.backgroundColor = [UIColor greenColor];
+    //    l.backgroundColor = [UIColor greenColor];
     
     [p addSubview:l];
     
     [window addSubview:p];
     
-//    NSLog(@"r{%.2f, %.2f, %.2f, %.2f}", r.origin.x, r.origin.y, r.size.width, r.size.height);
+    //    NSLog(@"r{%.2f, %.2f, %.2f, %.2f}", r.origin.x, r.origin.y, r.size.width, r.size.height);
     
-    NSTimeInterval s = time <= 0 ? 1 : time;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(s * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    if (seconds > 0) {
         
-        [self dismiss];
-    });
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(seconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            [self dismiss];
+        });
+    }
     
+}
+
++ (void)showText:(NSString *)text withSize:(CGSize)size durationTime:(NSTimeInterval)time {
+    
+    [self showText:text Size:size Color:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.7] dissmissTime:time];
+}
+
++ (void)showText:(NSString *)text withSize:(CGSize)size withColor:(UIColor *)color withDismissTime:(NSTimeInterval)seconds {
+    
+    [self showText:text Size:size Color:color dissmissTime:seconds];
 }
 
 + (void)dismiss {
     
     for (UIView *view in [[UIApplication sharedApplication].windows objectAtIndex:0].subviews) {
         
-        NSLog(@"class:%@", [NSString stringWithUTF8String:object_getClassName(view)]);
+//        NSLog(@"class:%@", [NSString stringWithUTF8String:object_getClassName(view)]);
         
         if ([view isKindOfClass:[HXProgress class]]) {
             

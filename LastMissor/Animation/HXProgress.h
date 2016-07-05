@@ -12,7 +12,12 @@
 
 
 + (void)showProgressWithSize:(CGSize)size;
++ (void)showProgressWithSize:(CGSize)size withColor:(UIColor *)color;
+
 + (void)showText:(NSString *)text withSize:(CGSize)size durationTime:(NSTimeInterval)time;
++ (void)showText:(NSString *)text withSize:(CGSize)size withColor:(UIColor *)color withDismissTime:(NSTimeInterval)seconds;
+
 + (void)dismiss;
+
 
 @end
