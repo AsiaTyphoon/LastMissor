@@ -10,6 +10,7 @@
 #import "RectangleView.h"
 #import "PicturesLoop.h"
 #import "AnimationViewController.h"
+#import "TableViewController.h"
 
 
 #define CellHeightForRow
@@ -78,8 +79,8 @@ static NSString *const footerId = @"footerId";
                             keyText:@"Animation",
                             keyImg:@""},
                           
-                          @{keyVc:@"AnimationViewController",
-                            keyText:@"Animation",
+                          @{keyVc:@"TableViewController",
+                            keyText:@"TableView",
                             keyImg:@""},
                           
                           @{keyVc:@"AnimationViewController",
@@ -412,7 +413,7 @@ static NSString *const footerId = @"footerId";
 - (void)didClickBtnWithDictionary:(NSDictionary *)dic {
     
     UIViewController *viewcontroller = [[NSClassFromString(dic[@"keyVc"]) alloc] init];
-    viewcontroller.title = @"Animation";
+    viewcontroller.title = dic[@"keyText"];
     [self.navigationController pushViewController:viewcontroller animated:YES];
 }
 

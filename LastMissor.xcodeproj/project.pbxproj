@@ -60,6 +60,8 @@
 		EE35FB5B1D2BB7C10032EB89 /* OCScanLifeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE35FB551D2BB7C10032EB89 /* OCScanLifeViewController.m */; };
 		EE35FB5C1D2BB7C10032EB89 /* OCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE35FB571D2BB7C10032EB89 /* OCSearchViewController.m */; };
 		EE3AC8D01D17782C00DC9D04 /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE3AC8CF1D17782C00DC9D04 /* AnimationViewController.m */; };
+		EE516A6F1D2FA42800B2FAD3 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE516A6E1D2FA42800B2FAD3 /* TableViewController.m */; };
+		EE516A721D2FA43C00B2FAD3 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE516A711D2FA43C00B2FAD3 /* TableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +164,10 @@
 		EE35FB571D2BB7C10032EB89 /* OCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSearchViewController.m; sourceTree = "<group>"; };
 		EE3AC8CE1D17782C00DC9D04 /* AnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationViewController.h; sourceTree = "<group>"; };
 		EE3AC8CF1D17782C00DC9D04 /* AnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationViewController.m; sourceTree = "<group>"; };
+		EE516A6D1D2FA42800B2FAD3 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		EE516A6E1D2FA42800B2FAD3 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		EE516A701D2FA43C00B2FAD3 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		EE516A711D2FA43C00B2FAD3 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +279,7 @@
 				EE1507161D12A8A1009A22B1 /* MainController */,
 				EE0CDE491D13C5E20034525D /* TabbarController */,
 				EE3AC8CD1D17782C00DC9D04 /* Animation */,
+				EE516A6C1D2FA38D00B2FAD3 /* UITableView */,
 				EE24ACFB1D25182D0000C8BB /* Category */,
 				EE35FB4D1D2BB7C10032EB89 /* ObjectiveUI */,
 				EE0CDE561D13D5FA0034525D /* Resources */,
@@ -403,6 +410,17 @@
 				EE2FC6611D235F9D006E3F7F /* HXProgress.m */,
 			);
 			path = Animation;
+			sourceTree = "<group>";
+		};
+		EE516A6C1D2FA38D00B2FAD3 /* UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				EE516A6D1D2FA42800B2FAD3 /* TableViewController.h */,
+				EE516A6E1D2FA42800B2FAD3 /* TableViewController.m */,
+				EE516A701D2FA43C00B2FAD3 /* TableViewCell.h */,
+				EE516A711D2FA43C00B2FAD3 /* TableViewCell.m */,
+			);
+			path = UITableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -568,6 +586,7 @@
 				EE3AC8D01D17782C00DC9D04 /* AnimationViewController.m in Sources */,
 				EE1506E81D12A49C009A22B1 /* AppDelegate.m in Sources */,
 				EE2FC6621D235F9D006E3F7F /* HXProgress.m in Sources */,
+				EE516A6F1D2FA42800B2FAD3 /* TableViewController.m in Sources */,
 				EE1506E51D12A49C009A22B1 /* main.m in Sources */,
 				EE0CDE521D13C6FE0034525D /* FriendViewController.m in Sources */,
 				EE2AE05E1D152F030024CCAA /* PicturesLoop.m in Sources */,
@@ -578,6 +597,7 @@
 				EE35FB591D2BB7C10032EB89 /* OCNinegridViewController.m in Sources */,
 				EE0AE4FD1D261B6300AD1C04 /* UIImage+Colors.m in Sources */,
 				EE0CDE551D13C7080034525D /* AboutViewController.m in Sources */,
+				EE516A721D2FA43C00B2FAD3 /* TableViewCell.m in Sources */,
 				EE35FB5C1D2BB7C10032EB89 /* OCSearchViewController.m in Sources */,
 				EE0CDE4C1D13C6DD0034525D /* HomeViewController.m in Sources */,
 				EE0CDE4F1D13C6F10034525D /* FoodViewController.m in Sources */,
