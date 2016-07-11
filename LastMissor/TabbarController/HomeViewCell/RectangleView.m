@@ -32,7 +32,7 @@
         self.backgroundColor = [UIColor whiteColor];
         rows = 4;
         lines = dicArray.count/rows + (dicArray.count%rows == 0 ? 0 : 1);
-        NSLog(@"lines:%ld", lines);
+        LOG(@">>>>>>>> lines:%ld", lines)
         CGFloat btnW = viewW/rows-1;
         CGFloat btnH = viewH/lines;
         

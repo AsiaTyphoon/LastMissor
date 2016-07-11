@@ -37,11 +37,14 @@
     
     
     //设置tabbarcontroller的tabbaritem图片的大小
-    UIImage *tabbarimage=[[UIImage imageNamed:@"home-10.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UIImageView *tabBarBackgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.tabBar.frame.size.width, self.tabBar.frame.size.height)];
+    CGFloat w = self.tabBar.frame.size.width;
+    CGFloat h = self.tabBar.frame.size.height;
+    UIImage *tabbarImg = [UIImage imageWithColor:RGBA_COLOR(220, 220, 220, 0.7) wihtSize:CGSizeMake(w, h)];
+    UIImageView *tabBarBackgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, w, h)];
     //tabBarBackgroundImageView.contentMode = UIViewContentModeScaleAspectFit;//效果将按原图原来的比例缩放
-    tabBarBackgroundImageView.image =tabbarimage;
+    tabBarBackgroundImageView.image = tabbarImg;
     [self.tabBar insertSubview:tabBarBackgroundImageView atIndex:1]; //atIndex决定你的图片显示在标签栏的哪一层
+     
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,25 +59,25 @@
  
     NSArray *childViewControllers = @[
                                       @{keyClass:@"HomeViewController",
-                                        keyTtitle:@"",
+                                        keyTtitle:@"账单",
                                         keyBtitle:@"支付宝",
                                         keyNimage:@"tabbar_mainframe",
                                         keySimage:@"tabbar_mainframeHL"},
                                       
                                       @{keyClass:@"FoodViewController",
-                                        keyTtitle:@"",
+                                        keyTtitle:@"商家",
                                         keyBtitle:@"口碑",
                                         keyNimage:@"tabbar_discover",
                                         keySimage:@"tabbar_discoverHL"},
                                       
                                       @{keyClass:@"FriendViewController",
-                                        keyTtitle:@"",
+                                        keyTtitle:@"生活圈",
                                         keyBtitle:@"朋友",
                                         keyNimage:@"tabbar_contacts",
                                         keySimage:@"tabbar_contactsHL"},
                                       
                                       @{keyClass:@"AboutViewController",
-                                        keyTtitle:@"",
+                                        keyTtitle:@"设置",
                                         keyBtitle:@"我的",
                                         keyNimage:@"tabbar_me",
                                         keySimage:@"tabbar_meHL"}
@@ -105,32 +108,9 @@
     UIViewController *vc = [[NSClassFromString(class) alloc] init];
     
     HXNavigationController *HXNaVc = [[HXNavigationController alloc] initWithRootViewController:vc];
-    //设置导航栏背景图片
-    UIImage *bgImage = [self imageWithColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.8] size:CGSizeMake(self.tabBar.frame.size.width, self.tabBar.frame.size.height)];
-    [HXNaVc.navigationBar setBackgroundImage:[bgImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forBarMetrics:UIBarMetricsDefault];
-    
-    //添加阴影图片，用来隐藏导航栏底部线条
-    UIImage *shadowImage = [self imageWithColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.0] size:CGSizeMake(self.tabBar.frame.size.width, 1)];
-    [HXNaVc.navigationBar setShadowImage:shadowImage];
-    
-    
-    //导航栏上title字体的颜色
-    //    HXNaVc.navigationBar.titleTextAttributes = @{UITextAttributeTextColor:[UIColor whiteColor]};
-    HXNaVc.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
-    
-    //导航栏上字体的颜色，不包括title
-    //    HXNaVc.navigationBar.tintColor = [UIColor redColor];
-    //    HXNaVc.navigationBar.backgroundColor = [UIColor redColor];
-    
-    //设置统一的返回按钮样式,设置返回按钮图片和文字偏移,图片设置拉伸变形厉害，暂未使用
-    //UIBarMetricsCompact 只显示文字
-    //    UIImage *backImage = [UIImage imageNamed:@"back_white.png"];
-    //    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    //    [[UIBarButtonItem appearance] setBackButtonBackgroundVerticalPositionAdjustment:CGFLOAT_MIN forBarMetrics:UIBarMetricsDefault];//调整返回图片上下移动
-    //    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(NSIntegerMin, NSIntegerMin) forBarMetrics:UIBarMetricsDefault];
-    
-    
-        vc.title = title;//与navigationItem.title效果相同
+
+        
+    vc.title = title;//与navigationItem.title效果相同
     //    vc.navigationItem.title = title;
     
     vc.tabBarItem.title = itemTitle;
@@ -143,35 +123,10 @@
 //    vc.tabBarItem.imageInsets = UIEdgeInsetsMake(offset, 0, -offset, 0);
     
     
-
-    
     [self addChildViewController:HXNaVc];
     
 }
 
-
--(UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size
-{
-    CGRect rect = CGRectMake(0, 0, size.width, size.height);
-    
-    UIGraphicsBeginImageContext(rect.size);
-    
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    
-    CGContextFillRect(context, rect);
-    
-    
-    
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    
-    UIGraphicsEndImageContext();
-    
-    
-    return image;
-    
-}
 
 
 

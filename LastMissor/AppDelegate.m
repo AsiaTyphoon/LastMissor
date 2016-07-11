@@ -26,7 +26,7 @@
     
     for (UIWindow *window in [UIApplication sharedApplication].windows) {
         
-        NSLog(@"window:%@", [NSString stringWithUTF8String:object_getClassName(window)]);
+         LOG(@">>>>>>>> window:%@", [NSString stringWithUTF8String:object_getClassName(window)])
     }
     
     

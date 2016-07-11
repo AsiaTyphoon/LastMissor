@@ -8,6 +8,7 @@
 
 #import "HXNavigationController.h"
 
+
 @interface HXNavigationController ()
 
 @end
@@ -18,25 +19,36 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    // 设置导航栏为半透明
-    UINavigationBar *navigationBar = self.navigationBar;
-//    [navigationBar setBarStyle:UIBarStyleDefault];
-//    [navigationBar setTranslucent:YES];
-    
-    //修改标题的颜色
-    [navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    //修改导航栏标题颜色
+    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    //修改导航栏item颜色
+    self.navigationBar.tintColor = [UIColor greenColor];
+    //修改导航栏背景颜色
+    self.navigationBar.backgroundColor = [UIColor clearColor];
     
     //修改导航栏背景颜色为黑色，并且状态栏的字体颜色为白色
-    [self.navigationBar setBarStyle:UIBarStyleBlack];
+    self.navigationBar.barStyle = UIBarStyleBlack;
+    
+    //添加阴影图片，用来隐藏导航栏底部线条
+    UIImage *shadowImg = [UIImage imageWithColor:RGBA_COLOR(0, 0, 0, 0) wihtSize:CGSizeMake([UIScreen mainScreen].bounds.size.width, 1)];
+    [self.navigationBar setShadowImage:shadowImg];
 
-    //    UINavigationBar *bar = [UINavigationBar appearance];
-    //    CGFloat rgb = 0.1;
-    //    bar.barTintColor = [UIColor colorWithRed:rgb green:rgb blue:rgb alpha:0.9];
-    //    bar.tintColor = [UIColor whiteColor];
-    //    bar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+    //设置导航栏背景图片
+    UIImage *backgroundImg = [UIImage imageWithColor:RGBA_COLOR(0, 0, 0, 0.8) wihtSize:CGSizeMake([UIScreen mainScreen].bounds.size.height, 45)];
+    [self.navigationBar setBackgroundImage:backgroundImg forBarMetrics:UIBarMetricsDefault];
+    
 
+    //设置统一的返回按钮样式,设置返回按钮图片和文字偏移,图片设置拉伸变形厉害，暂未使用
+    //UIBarMetricsCompact 只显示文字
+//        UIImage *backImage = [UIImage imageNamed:@"back_white.png"];
+//        [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backgroundImg forState:UIControlStateNormal barMetrics:UIBarMetricsCompact];
+    //    [[UIBarButtonItem appearance] setBackButtonBackgroundVerticalPositionAdjustment:CGFLOAT_MIN forBarMetrics:UIBarMetricsDefault];//调整返回图片上下移动
+    //    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(NSIntegerMin, NSIntegerMin) forBarMetrics:UIBarMetricsDefault];
+
+    
     //全局隐藏tabbar
 //    self.navigationBar.hidden = YES;
+    
 }
 
 - (void)didReceiveMemoryWarning {
