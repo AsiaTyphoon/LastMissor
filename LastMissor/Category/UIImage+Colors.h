@@ -11,6 +11,6 @@
 @interface UIImage (Colors)
 
 + (UIImage *)imageWithColor:(UIColor *)color wihtSize:(CGSize)size;
-
++ (UIImage *)roundImageWithColor:(UIColor *)color wihtSize:(CGSize)size;
 
 @end

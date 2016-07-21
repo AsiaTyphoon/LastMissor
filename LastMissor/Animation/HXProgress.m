@@ -175,16 +175,29 @@
 
 
 #pragma mark -
-- (CGRect)rectOfText:(NSString *)text WithFont:(UIFont *)font
-{
+//label的默认font.pointSize = 17.0
+- (CGRect)rectOfText:(NSString *)text WithFont:(UIFont *)font {
+    
+    UIFont *attributesFont = nil;
+    if (font == nil) {
+        attributesFont = [UIFont systemFontOfSize:17];
+    }
+    else {
+        attributesFont = font;
+    }
+    
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
-    //    NSLog(@"text:%@", text);
-    NSDictionary *attributesDic = @{NSFontAttributeName:font, NSParagraphStyleAttributeName:paragraphStyle.copy};
-    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width-20, CGFLOAT_MAX);
-    CGRect rect = [text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attributesDic context:nil];
-    //    NSLog(@"text.width:%f", rect.size.width);
-    //    NSLog(@"text.height:%f", rect.size.height);
+
+    NSDictionary *attributesDic = @{NSFontAttributeName:attributesFont,
+                                    NSParagraphStyleAttributeName:paragraphStyle.copy};
+    
+    CGFloat w = [UIScreen mainScreen].bounds.size.width;
+    CGSize size = CGSizeMake(w-20, CGFLOAT_MAX);
+    CGRect rect = [text boundingRectWithSize:size
+                                     options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                  attributes:attributesDic
+                                     context:nil];
     
     return rect;
 }

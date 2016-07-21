@@ -25,6 +25,8 @@ UISearchControllerDelegate
 
 @property (nonatomic, strong) UISearchBar *searchBar;
 
+
+
 @end
 
 @implementation OCSearchViewController
@@ -40,6 +42,7 @@ UISearchControllerDelegate
     
     [self.view addSubview:self.tableView];
 //    [self setUpUIBarButtonItem];
+ 
     
 }
 

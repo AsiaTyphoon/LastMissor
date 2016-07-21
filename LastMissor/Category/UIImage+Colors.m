@@ -24,5 +24,29 @@
     return img;
 }
 
++ (UIImage *)roundImageWithColor:(UIColor *)color wihtSize:(CGSize)size {
+    
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context,color.CGColor);
+    CGContextSetRGBFillColor(context, 1, 0, 0, 1);
+    CGContextSetRGBStrokeColor(context, 1, 1, 1, 1);
+//    CGContextSetFillColor(context, color.CGColor);
+    CGContextAddArc(context, size.width/2, size.width/2, 5, 0, 2*M_PI, 0);
+//    CGContextStrokePath(context);
+//    CGContextStrokeEllipseInRect(context, rect);
+//    CGContextFillRect(context, rect);
+    
+    CGContextDrawPath(context, kCGPathFill);
+    CGContextAddArc(context, size.width/2, size.width/2, size.width/2, 0, 2*M_PI, 0);
+    CGContextDrawPath(context, kCGPathStroke);
+
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return img;
+}
+
 
 @end

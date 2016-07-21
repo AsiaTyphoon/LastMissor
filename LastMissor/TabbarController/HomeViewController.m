@@ -10,6 +10,7 @@
 #import "RectangleView.h"
 #import "PicturesLoop.h"
 #import "AnimationViewController.h"
+#import "AVPlayerViewController.h"
 #import "TableViewController.h"
 
 
@@ -57,6 +58,53 @@ static NSString *const footerId = @"footerId";
     
     [self.view addSubview:self.collectionView];
     
+    
+    
+    
+    UILabel *labell = [self initwithString:@"qwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnm"];
+    labell.numberOfLines = 0;
+//    [self.view addSubview:labell];
+    
+    
+
+
+}
+
+- (id)initwithString:(NSString *)text {
+    
+    CGRect rect = [self rectOfText:text WithFont:nil];
+    UILabel *label  = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, rect.size.width, rect.size.height)];
+    label.text = text;
+    label.center = self.view.center;
+    label.backgroundColor = [UIColor redColor];
+    
+    return label;
+}
+
+- (CGRect)rectOfText:(NSString *)text WithFont:(UIFont *)font {
+    
+    UIFont *attributesFont = nil;
+    if (font == nil) {
+        attributesFont = [UIFont systemFontOfSize:17];
+    }
+    else {
+        attributesFont = font;
+    }
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    
+    NSDictionary *attributesDic = @{NSFontAttributeName:attributesFont,
+                                    NSParagraphStyleAttributeName:paragraphStyle.copy};
+    
+    CGFloat w = [UIScreen mainScreen].bounds.size.width;
+    CGSize size = CGSizeMake(w-20, CGFLOAT_MAX);
+    CGRect rect = [text boundingRectWithSize:size
+                                     options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                  attributes:attributesDic
+                                     context:nil];
+    
+    return rect;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -83,8 +131,8 @@ static NSString *const footerId = @"footerId";
                             keyText:@"TableView",
                             keyImg:@""},
                           
-                          @{keyVc:@"AnimationViewController",
-                            keyText:@"Animation",
+                          @{keyVc:@"AVPlayerViewController",
+                            keyText:@"AVPlayer",
                             keyImg:@""},
                           
                           @{keyVc:@"AnimationViewController",

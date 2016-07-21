@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE0466881D3791BD00B679FA /* HXAVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0466871D3791BD00B679FA /* HXAVPlayer.m */; };
+		EE04668B1D3791E600B679FA /* AVPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE04668A1D3791E600B679FA /* AVPlayerViewController.m */; };
 		EE0AE4FD1D261B6300AD1C04 /* UIImage+Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0AE4FC1D261B6300AD1C04 /* UIImage+Colors.m */; };
 		EE0AE5001D261CAC00AD1C04 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0AE4FF1D261CAC00AD1C04 /* UIColor+Hex.m */; };
 		EE0CDE4C1D13C6DD0034525D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0CDE4B1D13C6DD0034525D /* HomeViewController.m */; };
@@ -82,6 +84,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE0466861D3791BD00B679FA /* HXAVPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXAVPlayer.h; sourceTree = "<group>"; };
+		EE0466871D3791BD00B679FA /* HXAVPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXAVPlayer.m; sourceTree = "<group>"; };
+		EE0466891D3791E600B679FA /* AVPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPlayerViewController.h; sourceTree = "<group>"; };
+		EE04668A1D3791E600B679FA /* AVPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPlayerViewController.m; sourceTree = "<group>"; };
 		EE0AE4FB1D261B6300AD1C04 /* UIImage+Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Colors.h"; sourceTree = "<group>"; };
 		EE0AE4FC1D261B6300AD1C04 /* UIImage+Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Colors.m"; sourceTree = "<group>"; };
 		EE0AE4FE1D261CAC00AD1C04 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
@@ -196,6 +202,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE0466851D3791BD00B679FA /* AVFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				EE0466861D3791BD00B679FA /* HXAVPlayer.h */,
+				EE0466871D3791BD00B679FA /* HXAVPlayer.m */,
+				EE0466891D3791E600B679FA /* AVPlayerViewController.h */,
+				EE04668A1D3791E600B679FA /* AVPlayerViewController.m */,
+			);
+			path = AVFoundation;
+			sourceTree = "<group>";
+		};
 		EE0CDE491D13C5E20034525D /* TabbarController */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +296,7 @@
 				EE1506E31D12A49C009A22B1 /* Supporting Files */,
 				EE1507161D12A8A1009A22B1 /* MainController */,
 				EE0CDE491D13C5E20034525D /* TabbarController */,
+				EE0466851D3791BD00B679FA /* AVFoundation */,
 				EE3AC8CD1D17782C00DC9D04 /* Animation */,
 				EE516A6C1D2FA38D00B2FAD3 /* UITableView */,
 				EE24ACFB1D25182D0000C8BB /* Category */,
@@ -594,6 +612,8 @@
 				EE2AE05E1D152F030024CCAA /* PicturesLoop.m in Sources */,
 				EE35FB5B1D2BB7C10032EB89 /* OCScanLifeViewController.m in Sources */,
 				EE35FB5A1D2BB7C10032EB89 /* OCPinchViewController.m in Sources */,
+				EE04668B1D3791E600B679FA /* AVPlayerViewController.m in Sources */,
+				EE0466881D3791BD00B679FA /* HXAVPlayer.m in Sources */,
 				EE2AE0521D1517AE0024CCAA /* RectangleView.m in Sources */,
 				EE15071C1D12A925009A22B1 /* HXTabBarController.m in Sources */,
 				EE35FB591D2BB7C10032EB89 /* OCNinegridViewController.m in Sources */,
