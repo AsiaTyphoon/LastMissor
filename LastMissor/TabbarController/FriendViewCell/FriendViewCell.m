@@ -8,6 +8,7 @@
 
 #import "FriendViewCell.h"
 #import "Masonry.h"
+#import "UILabel+TextAlignment.h"
 
 @implementation FriendViewCell
 
@@ -68,6 +69,14 @@
     }
     return self;
 }
+
+- (void)drawRect:(CGRect)rect {
+    NSLog(@"rect.size.width:%.f", rect.size.width);
+    NSLog(@"rect.size.height:%.f", rect.size.height);
+    
+    [self.titleLabel setTextAlignmentTop];
+}
+
 
 
 @end

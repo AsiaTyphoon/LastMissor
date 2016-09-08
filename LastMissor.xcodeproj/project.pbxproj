@@ -76,6 +76,7 @@
 		EEED2AE51D810FA8000DBBEE /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EEED2AD81D810FA8000DBBEE /* View+MASAdditions.m */; };
 		EEED2AE61D810FA8000DBBEE /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EEED2ADB1D810FA8000DBBEE /* ViewController+MASAdditions.m */; };
 		EEED2AEA1D8115FC000DBBEE /* FriendViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEED2AE91D8115FC000DBBEE /* FriendViewCell.m */; };
+		EEED2AED1D8150E7000DBBEE /* UILabel+TextAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = EEED2AEC1D8150E7000DBBEE /* UILabel+TextAlignment.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,6 +216,8 @@
 		EEED2ADB1D810FA8000DBBEE /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		EEED2AE81D8115FC000DBBEE /* FriendViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendViewCell.h; sourceTree = "<group>"; };
 		EEED2AE91D8115FC000DBBEE /* FriendViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendViewCell.m; sourceTree = "<group>"; };
+		EEED2AEB1D8150E7000DBBEE /* UILabel+TextAlignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+TextAlignment.h"; sourceTree = "<group>"; };
+		EEED2AEC1D8150E7000DBBEE /* UILabel+TextAlignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+TextAlignment.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,6 +398,8 @@
 				EE0AE4FC1D261B6300AD1C04 /* UIImage+Colors.m */,
 				EE0AE4FE1D261CAC00AD1C04 /* UIColor+Hex.h */,
 				EE0AE4FF1D261CAC00AD1C04 /* UIColor+Hex.m */,
+				EEED2AEB1D8150E7000DBBEE /* UILabel+TextAlignment.h */,
+				EEED2AEC1D8150E7000DBBEE /* UILabel+TextAlignment.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -706,6 +711,7 @@
 				EE04668B1D3791E600B679FA /* AVPlayerViewController.m in Sources */,
 				EE0466881D3791BD00B679FA /* HXAVPlayer.m in Sources */,
 				EE2AE0521D1517AE0024CCAA /* RectangleView.m in Sources */,
+				EEED2AED1D8150E7000DBBEE /* UILabel+TextAlignment.m in Sources */,
 				EEED2ADF1D810FA8000DBBEE /* MASConstraintMaker.m in Sources */,
 				EEED2AE01D810FA8000DBBEE /* MASLayoutConstraint.m in Sources */,
 				EE15071C1D12A925009A22B1 /* HXTabBarController.m in Sources */,
