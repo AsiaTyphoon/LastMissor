@@ -127,6 +127,9 @@
     l.textColor = [UIColor whiteColor];
     l.textAlignment = NSTextAlignmentCenter;
     l.center = CGPointMake(w/2, h/2);
+    l.lineBreakMode = NSLineBreakByWordWrapping;
+    l.adjustsFontSizeToFitWidth = YES;
+    l.numberOfLines = 0;
     //    l.backgroundColor = [UIColor greenColor];
     
     [p addSubview:l];
